@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6b1058b339.js" crossorigin="anonymous"></script>
+    <title>category</title>
+    <style>
+        .category-icons{
+            display: grid;
+            width: 100%;
+            height: 100%;
+            margin: 10px 0;
+            grid-template-columns: repeat(5,1fr);
+            align-items: center;
+            justify-items: center;
+            background-color: rgb(250, 250, 250);
+        }
+        .category-icons i{
+            text-align: center;
+            line-height: 55px;
+            color: #acacac;
+            border-color: #333;
+            font-size: 1.5rem;
+        }
+        .category-icons i:hover{
+            color: #cdcdf3;
+            border-color: #aaa;
+        }
+        .icons{
+            width: fit-content;
+            align-items: center;
+            cursor: pointer;
+        }
+        .hovertext {
+            position: relative;
+        }
+        .hovertext:before {
+            content: attr(data-hover);
+            visibility: hidden;
+            opacity: 0;
+            width: 80px;
+            background-color: #cdcdf3;
+            border-color: #aaa;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            transition: opacity 0.1s ease-in-out;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 85%;
+        }
+        .hovertext:hover:before {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="category-icons">
+        <div class="category-icon1 icons">
+            <div class="hovertext" data-hover="Clothes">
+                <i class="fa-solid fa-shirt"></i>
+            </div>
+        </div><div class="category-icon2 icons">
+            <div class="hovertext" data-hover="Books">
+                <i class="fa-solid fa-book"></i>
+            </div>
+        </div><div class="category-icon3 icons">
+            <div class="hovertext" data-hover="Toys">
+                <i class="fa-solid fa-gamepad"></i>
+            </div>
+        </div><div class="category-icon4 icons">
+            <div class="hovertext" data-hover="Bags">
+                <i class="fa-solid fa-briefcase"></i>
+            </div>
+        </div><div class="category-icon5 icons">
+            <div class="hovertext" data-hover="Gifts">
+                <i class="fa-solid fa-gift"></i>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

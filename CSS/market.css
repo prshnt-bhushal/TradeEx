@@ -1,0 +1,98 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  text-decoration: none;
+  /* try */
+  box-sizing: border-box;
+}
+body{
+  background-color: rgb(236, 234, 234);
+}
+/* Cointainer */
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 15px;
+}
+.sub-container{
+  margin-top: 75px;
+}
+  /* Main contentbox CSS */
+  .main-content{
+  flex-basis: 79%;
+  display: block;
+  background-color: white;
+  padding: 0 20px;
+  display: grid;
+  overflow: hidden;
+  }
+  #sub-topic{
+    margin-bottom: 2%;
+  }
+  #containerCategory,#containerRelevant,#containerRevised{
+    display: grid;
+    grid-gap: 70px 20px;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    margin: 1px;
+    margin-top: 10px;
+    padding-bottom: 40px;
+  }
+  #box {
+    width: 100%;
+    background-color: white;
+    align-content: center;
+    border-radius: 10px;
+    box-shadow: 1px 2px 6px 2px rgb(219 219 219);
+  }
+  #box:hover {
+    box-shadow: 1px 6px 3px 0 rgb(185 185 185);
+  }
+  #box a {
+    text-decoration: none;
+    color: rgb(29, 29, 29);
+  }
+  #containerRelevant img, #containerRevised img{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  #details {
+    padding: 0 15px;
+    text-transform: capitalize;
+  }
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .container {   
+    flex-direction: column;
+  }
+  .main-content{
+    flex: 90%;
+  }
+  #containerRelevant, #containerRevised {
+    width: 95%;
+    grid-gap: 10px;
+  }
+}
+
+/* Media Query */
+/* On screens that are 992px wide or less */
+@media screen and (max-width: 970px) {
+  #containerRelevant, #containerRevised {
+    width: 97%;
+    grid-gap: 12px;
+  }
+  .main-content{
+    flex: 90%;
+  }
+}
+
+/* On screens that are 600px wide or less*/
+/* @media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+} */
+/* Media Query */
