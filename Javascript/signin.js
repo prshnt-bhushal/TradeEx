@@ -1,22 +1,11 @@
-import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js"
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-import {getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-import { getFirestore } from  "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCkhqLVV1-YjUWLOx76M0zZ7ZYfBQFyglk",
-  authDomain: "trade-exchange-2022.firebaseapp.com",
-  projectId: "trade-exchange-2022",
-  storageBucket: "trade-exchange-2022.appspot.com",
-  messagingSenderId: "291602088991",
-  appId: "1:291602088991:web:544e47f4008e4bf2de412a",
-  measurementId: "G-BXNN9K3MWP"
-};
+import { returnAuth } from './firebasefile.js';
+import { returnStore } from './firebasefile.js';
+import {createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const store = getFirestore(app);
+const auth = returnAuth();
+const store = returnStore();
 //sign Up
 const btn_register =document.getElementById('btn-register');
 btn_register.addEventListener('click',()=>{
@@ -48,6 +37,7 @@ btn_register.addEventListener('click',()=>{
   });
 })
 
+
 // sign in
 
 const btn_login =document.getElementById('btn-login');
@@ -68,6 +58,4 @@ btn_login.addEventListener('click',()=>{
     const errorMessage = error.message;
     alert(error.message)
   });
-})
-
-export default app;
+}) 
