@@ -16,22 +16,26 @@
     .body-imp-links a{
       display: flex;
       align-items: center;
-      padding-left: 30px;
+      justify-content: center;
       margin-top: 20px;
       margin-bottom: 10px;
       color: #626262;
       width: fit-content;
     }
-    .body-imp-links a img{
-      width: 30px;
-      margin-right: 15px;
-      margin-top: 20px;
+    .body-imp-links a:hover{
+      color: #aaa;
+    }
+    .body-imp-links i{
+      width: 50px;
     }
     .body-imp-links a:last-child
     {
       color: #1876f2;
     }
     .body-imp-links, .ads{
+      display: grid;
+      justify-content: start;
+      align-content: center;
       border-bottom:1px solid #ccc ;
     }
     .ads img{
