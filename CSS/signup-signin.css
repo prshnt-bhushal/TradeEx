@@ -51,8 +51,8 @@ form{
     margin-bottom: 10px;
 }
 .input-field{
-    max-width: 380px;
-    width: 100%;
+    max-width: 400px;
+    width: 120%;
     height: 55px;
     background-color: #f0f0f0;
     margin: 10px 0;
@@ -73,8 +73,8 @@ form{
     outline:none;
     border: none;
     line-height: 1;
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-weight: 100;
+    font-size: 1.1rem;
     color: #333;
 }
 .input-field input:placeholder-shown{
