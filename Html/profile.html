@@ -64,38 +64,29 @@
             padding: 5px;
             resize: none;
         }
-        .upload-image-1{
-            grid-row-start: 5;
-            grid-row-end: 11;
-            padding: 5px;
-            background-color: white;
-            margin: 1px;
-        }.upload-images{
-            display: grid;
+        .upload-images{
+            /* display: grid; */
             justify-content: center;
             grid-template-columns: repeat(4,1fr);
             grid-row-start: 5;
-            grid-row-end: 9;
+            grid-row-end: 11;
             padding: 5px;
             background-color: white;
             margin: 1px;
         }
         .upload-images h4{
-            grid-column-start: 1;
-            grid-column-end: 5;
+            padding: 10px;
         }
-        .image2,.image3,.image4,.image5{
-            background-color: #ccc;
-            height: 100px;
-            width: 75px;
-            margin: 1px;
-        }.price{
+        .price{
             display: grid;
-            grid-row-start: 9;
-            grid-row-end: 11;
+            grid-row-start: 5;
+            grid-row-end: 9;
             padding: 5px;
             background-color: #ccc;
             margin: 1px;
+        }
+        .btn-upload{
+            grid-row-start: 10;
         }.btn-show-add-container{
             float: right;
             margin: 10px;
@@ -140,26 +131,28 @@
                 <button class="btn-show-add-container" onclick="myFunction()">Add Product</button>
                 <div class="show-hide-upload">
                     <div class="add-product-container" id="show-hide">
-                        <input type="text" id="product-title" placeholder="Product Name">
-                            <select name="category" id="select-category" >Select a category
-                                <option value="option 1">clothes</option>
-                                <option value="option 2">Books</option>
-                                <option value="option 3">others</option>
-                            </select>
-                            <input type="text" id="product-shortDes" placeholder="Short Line about product">
+                        <input type="text" id="product-title" placeholder="Product Name" required>
+                            <span>Category:
+                                <select name="category" id="select-category" >
+                                    <option value="none" selected disabled hidden>Select an Option</option>
+                                    <option value="option 1">clothes</option>
+                                    <option value="option 2">Books</option>
+                                    <option value="option 3">others</option>
+                                </select>
+                            </span>
+                            <input type="text" id="product-shortDes" placeholder="Eg. Brand, Type" required>
                             <textarea name="item-description" id="product-detailDes" cols="30" rows="3" placeholder="Tell us about your product."></textarea>
-                            
                             <div class="upload-images">
                                 <h4>upload image</h4>
-                                <input type="file" accept="image/*" class="upload-image-1" id="productImg"/>
+                                <input type="file" accept="image/*" class="upload-image-1" id="productImg" required/>
                                 <!-- <input type="file" accept="image/*" class="upload-image-1"/>
                                 <input type="file" accept="image/*" class="upload-image-1"/>
                                 <input type="file" accept="image/*" class="upload-image-1"/> -->
                             </div>
                             <div class="price">
                                 <h4>Price</h4>
-                                NRs:<input type="number" placeholder="Actual price">
-                                NRs:<input type="number" placeholder="offered price">
+                                Nrs:<input type="number" id="actualprice-provided" placeholder="Actual price" required>
+                                Nrs:<input type="number" id="offerprice-provided" placeholder="offered price" required>
                             </div>
                             <div class="btn-upload">
                                 <button type="button" id="btn-productUpload">Upload</button>
@@ -177,11 +170,11 @@
                             <span>category</span>
                             <span>Description</span>
                             <span>price</span>
+                            <h3>username</h3>
+                            <span id="usernameDisplay">hello</span>
                         </div>
-
                     </div>
                 </div>
-                
             </div>
         </div>
         <div id="13"></div>
