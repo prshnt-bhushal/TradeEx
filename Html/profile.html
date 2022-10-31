@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6b1058b339.js" crossorigin="anonymous"></script>
+    <title>Profile</title>
+    <!--website icon code-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- website icon code -->
+    <link rel="stylesheet" href="/CSS/market.css">
+    <style>
+        .profile-container{
+            display: block;
+            width: 100%;
+        }
+        .show-hide-upload{
+            width: 100%;
+            margin: 10px 0;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+        .add-product-container{
+            display: none;
+            border: 1px solid black;
+            box-sizing: border-box;
+            height: fit-content;
+            justify-content: center;
+            width: 100%;
+            margin: 10px 0;
+            padding: 0 10px;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows:30px 30px repeat(8, 1fr);
+            transition: 0.5s ease-in-out;
+        }
+        #product-title{
+            grid-column-start: 1;
+            grid-column-end: 2;
+            margin: 1px;
+            padding: 5px;
+        }#select-category{
+            grid-column-start: 2;
+            grid-column-end: 3;
+            margin: 1px;
+            padding: 5px;
+            width: fit-content;
+        }#product-shortDes{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            margin: 1px;
+            padding: 5px;
+        }#product-detailDes{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 3;
+            grid-row-end: 5;
+            margin: 1px;
+            padding: 5px;
+            resize: none;
+        }
+        .upload-image-1{
+            grid-row-start: 5;
+            grid-row-end: 11;
+            padding: 5px;
+            background-color: white;
+            margin: 1px;
+        }.upload-images{
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(4,1fr);
+            grid-row-start: 5;
+            grid-row-end: 9;
+            padding: 5px;
+            background-color: white;
+            margin: 1px;
+        }
+        .upload-images h4{
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+        .image2,.image3,.image4,.image5{
+            background-color: #ccc;
+            height: 100px;
+            width: 75px;
+            margin: 1px;
+        }.price{
+            display: grid;
+            grid-row-start: 9;
+            grid-row-end: 11;
+            padding: 5px;
+            background-color: #ccc;
+            margin: 1px;
+        }.btn-show-add-container{
+            float: right;
+            margin: 10px;
+        }
+        .uploaded-product-container{
+            display: block;
+            /* border-top: 1px solid black; */
+            width: 100%;
+            height: 100vh;
+        }
+        .uploaded-layout{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            border: 1px solid black;
+            height: fit-content;
+            margin: 5px 0;
+        }
+        .product-des{
+            display: grid;
+            width: 100%;
+            border-left: 1px solid black;
+            padding: 10px;
+            height: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div id="11"></div>
+    <script>
+      load("header.html");
+      function load(url) {
+        req = new XMLHttpRequest();
+        req.open("GET", url, false);
+        req.send(null);
+        document.getElementById(11).innerHTML = req.responseText;
+      }
+    </script>
+    <div class="container">
+        <div class="main-content sub-container">  
+            <div class="profile-container">
+                <button class="btn-show-add-container" onclick="myFunction()">Add Product</button>
+                <div class="show-hide-upload">
+                    <div class="add-product-container" id="show-hide">
+                        <input type="text" id="product-title" placeholder="Product Name">
+                            <select name="category" id="select-category" >Select a category
+                                <option value="option 1">clothes</option>
+                                <option value="option 2">Books</option>
+                                <option value="option 3">others</option>
+                            </select>
+                            <input type="text" id="product-shortDes" placeholder="Short Line about product">
+                            <textarea name="item-description" id="product-detailDes" cols="30" rows="3" placeholder="Tell us about your product."></textarea>
+                            
+                            <div class="upload-images">
+                                <h4>upload image</h4>
+                                <input type="file" accept="image/*" class="upload-image-1"/>
+                                <input type="file" accept="image/*" class="upload-image-1"/>
+                                <input type="file" accept="image/*" class="upload-image-1"/>
+                                <input type="file" accept="image/*" class="upload-image-1"/>
+                            </div>
+                            <div class="price">
+                                <h4>Price</h4>
+                                NRs:<input type="number" placeholder="Actual price">
+                                NRs:<input type="number" placeholder="offered price">
+                            </div>
+                            <div class="btn-upload">
+                                <button type="button">Upload</button>
+                            </div>
+                    </div>
+                </div>
+                <div class="uploaded-product-container">
+                    <h3>Your Feed</h3>
+                    <div class="uploaded-layout">
+                        <div class="main-img">
+                            <input type="image" src="" alt="">
+                        </div>
+                        <div class="product-des">
+                            <span>Title</span>
+                            <span>category</span>
+                            <span>Description</span>
+                            <span>price</span>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div id="13"></div>
+        <script>
+            load("sidebar.html");
+            function load(url) {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(13).innerHTML = req.responseText;
+            }
+        </script>
+      </div>
+    
+    <script>
+        function myFunction() {
+        var x = document.getElementById("show-hide");
+            if (x.style.display === "none") {
+                x.style.display = "grid";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
