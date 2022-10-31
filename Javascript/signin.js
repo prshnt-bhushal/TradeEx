@@ -1,7 +1,7 @@
 
 import { returnAuth } from './firebasefile.js';
 import { returnStore } from './firebasefile.js';
-import {createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import {createUserWithEmailAndPassword ,signInWithEmailAndPassword ,updateProfile} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
 
 const auth = returnAuth();
@@ -24,11 +24,12 @@ btn_register.addEventListener('click',()=>{
         password:pass
     }
     const docRef= doc(store,"user",user_id)
-    setDoc(docRef,data).then((documentRef)=>{
+    updateProfile(auth.currentUser, {displayName :username}).then(()=>{
+      setDoc(docRef,data).then((documentRef)=>{
         alert("user has been registered proceed to login")
         window.location.href = "/Html/signup-signin.html";
     })
-    // ...
+    })
   })
   .catch((error) => {
     const errorCode = error.code;
