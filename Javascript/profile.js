@@ -4,11 +4,10 @@ import { returnStore } from './firebasefile.js';
 import { returnStore_age } from './firebasefile.js';
 import { returnAuth } from './firebasefile.js';
 
-
+const postArray = [];
 const auth =returnAuth();
 const store_age =returnStore_age();
 const store =returnStore();
-const user_name =auth.currentUser.displayName;
 // let username_display =document.getElementById('usernameDisplay').innerText;
 // username_display.innerText=user_name;
 const btn_upload =document.getElementById("btn-productUpload");
@@ -25,6 +24,7 @@ btn_upload.addEventListener('click',()=>{
     
     
     const user_id =auth.currentUser.uid;
+    const user_name =auth.currentUser.displayName;
 
     const imgRef =ref(store_age,`images/${selectedFile.name}`);
     uploadBytes(imgRef, selectedFile).then(()=>{
@@ -48,17 +48,35 @@ btn_upload.addEventListener('click',()=>{
     
     })   
 })
+setTimeout(()=>{
 
-function postCall(){
+
     const postRef  = collection(store,'post');
-      const q = query(postRef, where("userId", "==", auth.currentUser.displayName));
-      onSnapshot(q,(snapshot)=>{
-        const pack = snapshot.docs.map((doc)=>({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        console.log('aaraha hain rukh jao');
-        console.log(pack);
-      })
-}
-postCall();
+    const q = query(postRef, where("userId", "==", auth.currentUser.displayName));
+    onSnapshot(q,(snapshot)=>{
+      const pack = snapshot.docs.map((doc)=>({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      console.log(pack);
+      pack.forEach(element => {
+        postArray.push(element)
+      });
+    })
+
+    console.log(postArray);
+},2000)
+
+// function postCall(){
+//     const postRef  = collection(store,'post');
+//       const q = query(postRef, where("userId", "==", auth.currentUser.displayName));
+//       onSnapshot(q,(snapshot)=>{
+//         const pack = snapshot.docs.map((doc)=>({
+//           id: doc.id,
+//           ...doc.data(),
+//         }))
+//         console.log('aaraha hain rukh jao');
+//         console.log(pack);
+//       })
+// }
+// postCall();
